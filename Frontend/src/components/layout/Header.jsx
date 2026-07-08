@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import FilmStrip from "../ui/FilmStrip";
+import { Link } from "react-router-dom";
 
 const COLORS = {
   bg: "#0B0B0C",
@@ -19,7 +20,20 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const navLinks = ["Home", "Movies", "Series", "My List"];
+  const navLinks = [
+    {
+      name: "Home",
+      href: "/",
+    },
+    {
+      name: "About",
+      href: "/about",
+    },
+    {
+      name: "Movies",
+      href: "/movies",
+    },
+  ];
   return (
     <>
       <header
@@ -41,14 +55,14 @@ const Header = () => {
 
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link, i) => (
-              <a
-                key={link}
-                href="#"
+              <Link
+                key={link.name}
+                to={link.href}
                 className="text-sm tracking-wide transition-colors"
                 style={{ color: i === 0 ? COLORS.ivory : COLORS.muted }}
               >
-                {link}
-              </a>
+                {link.name}
+              </Link>
             ))}
           </nav>
 
@@ -61,12 +75,13 @@ const Header = () => {
             >
               <FaSearch size={16} />
             </button>
-            <button
+            <Link
+              to="/login"
               className="hidden sm:block px-4 py-2 rounded text-sm font-semibold transition-transform hover:scale-105"
               style={{ backgroundColor: COLORS.amber, color: COLORS.bg }}
             >
               Sign In
-            </button>
+            </Link>
             <button
               className="md:hidden p-2"
               style={{ color: COLORS.ivory }}
@@ -84,21 +99,22 @@ const Header = () => {
             style={{ backgroundColor: COLORS.bgAlt }}
           >
             {navLinks.map((link) => (
-              <a
-                key={link}
-                href="#"
+              <Link
+                key={link.name}
+                to={link.href}
                 className="text-sm py-1"
                 style={{ color: COLORS.ivory }}
               >
-                {link}
-              </a>
+                {link.name}
+              </Link>
             ))}
-            <button
+            <Link
+              to="/login"
               className="px-4 py-2 rounded text-sm font-semibold w-full mt-1"
               style={{ backgroundColor: COLORS.amber, color: COLORS.bg }}
             >
               Sign In
-            </button>
+            </Link>
           </div>
         )}
 

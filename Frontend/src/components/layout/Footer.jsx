@@ -14,7 +14,6 @@ const COLORS = {
   card: "#1B1A1F",
   cardBorder: "#2A282E",
   amber: "#E8A33D",
-  amberSoft: "#F2C879",
   crimson: "#B3231C",
   ivory: "#F2EEE6",
   muted: "#948F87",
@@ -24,7 +23,12 @@ const COLORS = {
 const Footer = () => {
   return (
     <>
-      <footer>
+      <footer
+        style={{
+          backgroundColor: "rgba(11,11,12,0.92)",
+          backdropFilter: "blur(6px)",
+        }}
+      >
         <FilmStrip flip />
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-14 grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">

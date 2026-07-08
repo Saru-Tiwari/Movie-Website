@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import {
   FaFilm,
   FaGlobeAmericas,
@@ -7,6 +7,7 @@ import {
   FaLightbulb,
   FaShieldAlt,
 } from "react-icons/fa";
+import FilmStrip from "../components/ui/FilmStrip";
 
 /**
  * REELHOUSE — About page
@@ -25,33 +26,6 @@ const COLORS = {
   muted: "#948F87",
   mutedDark: "#5C5952",
 };
-
-const FilmStrip = ({ flip = false }) => (
-  <div
-    className="w-full flex"
-    style={{
-      backgroundColor: COLORS.crimson,
-      height: "12px",
-      transform: flip ? "scaleY(-1)" : "none",
-    }}
-    aria-hidden="true"
-  >
-    <div className="w-full flex items-center justify-around">
-      {Array.from({ length: 36 }).map((_, i) => (
-        <span
-          key={i}
-          style={{
-            width: "6px",
-            height: "6px",
-            borderRadius: "1px",
-            backgroundColor: COLORS.bg,
-            flexShrink: 0,
-          }}
-        />
-      ))}
-    </div>
-  </div>
-);
 
 const stats = [
   { label: "Titles Streaming", value: "12,400+" },
@@ -189,8 +163,6 @@ const About = () => {
       `}</style>
 
       <div className="rh-body">
-        <FilmStrip />
-
         {/* HERO */}
         <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 pb-14 text-center">
           <p
@@ -385,8 +357,6 @@ const About = () => {
             </button>
           </div>
         </section>
-
-        <FilmStrip flip />
       </div>
     </div>
   );

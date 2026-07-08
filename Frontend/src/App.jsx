@@ -4,6 +4,7 @@ import Layout from "./components/layout/Layout";
 import Login from "./Pages/Login";
 import About from "./Pages/About";
 import Register from "./Pages/Register";
+import Movies from "./Pages/Movies";
 
 const App = () => {
   return (
@@ -12,11 +13,11 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="movies" element={<Movies />} />
         </Route>
-        <Route path="/Register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-      <Home />
     </>
   );
 };
